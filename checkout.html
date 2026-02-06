@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Complete Your Order</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; max-width: 500px; margin: auto; }
+        .payment-box { background: #e3f2fd; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 5px solid #2196f3; }
+        input, button { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+        button { background: #4caf50; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h2>Checkout</h2>
+    <div class="payment-box">
+        <h4>How to Pay via M-PESA:</h4>
+        <ol>
+            <li>Go to M-PESA Menu</li>
+            <li>Select <strong>Lipa na M-PESA</strong></li>
+            <li>Select <strong>Buy Goods and Services</strong></li>
+            <li>Enter Till Number: <strong>[YOUR TILL HERE]</strong></li>
+            <li>Enter the Amount for your item</li>
+        </ol>
+    </div>
+
+    <form name="orders" method="POST" data-netlify="true">
+        <label>Full Name</label>
+        <input type="text" name="name" required placeholder="Jane Doe">
+        
+        <label>Phone Number</label>
+        <input type="tel" name="phone" required placeholder="0712345678">
+
+        <label>M-PESA Transaction Code</label>
+        <input type="text" name="transaction_code" required placeholder="SAB123XYZ">
+
+        <button type="submit">Confirm Payment & Order</button>
+    </form>
+</body>
+</html>
