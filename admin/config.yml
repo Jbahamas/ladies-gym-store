@@ -2,15 +2,17 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "images" # Where images will be saved
+media_folder: "images"
 public_folder: "images"
 
 collections:
   - name: "products"
     label: "Products"
-    folder: "products" # Where your product files will live
+    folder: "products"
     create: true
     slug: "{{slug}}"
+    format: "yaml-frontmatter" # This is important
+    extension: "md" # This is important
     fields:
       - { label: "Product Name", name: "title", widget: "string" }
       - { label: "Price (KES)", name: "price", widget: "string" }
