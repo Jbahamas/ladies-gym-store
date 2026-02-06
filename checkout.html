@@ -1,38 +1,44 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Complete Your Order</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Order | HerFit</title>
     <style>
-        body { font-family: sans-serif; padding: 20px; max-width: 500px; margin: auto; }
-        .payment-box { background: #e3f2fd; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 5px solid #2196f3; }
-        input, button { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
-        button { background: #4caf50; color: white; border: none; cursor: pointer; }
+        body { font-family: sans-serif; background: #f4f4f4; padding: 20px; display: flex; justify-content: center; }
+        .checkout-container { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); max-width: 450px; width: 100%; }
+        .till-box { background: #e8f5e9; border: 2px dashed #4caf50; padding: 15px; border-radius: 8px; margin-bottom: 20px; text-align: center; }
+        .till-number { display: block; font-size: 2rem; font-weight: bold; color: #2e7d32; margin: 10px 0; }
+        input, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 6px; box-sizing: border-box; }
+        button { width: 100%; padding: 15px; background: #ff4081; color: white; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 1rem; }
+        button:hover { background: #e91e63; }
     </style>
 </head>
 <body>
-    <h2>Checkout</h2>
-    <div class="payment-box">
-        <h4>How to Pay via M-PESA:</h4>
-        <ol>
-            <li>Go to M-PESA Menu</li>
-            <li>Select <strong>Lipa na M-PESA</strong></li>
-            <li>Select <strong>Buy Goods and Services</strong></li>
-            <li>Enter Till Number: <strong>[YOUR TILL HERE]</strong></li>
-            <li>Enter the Amount for your item</li>
-        </ol>
+
+<div class="checkout-container">
+    <h2>Complete Your Purchase</h2>
+    
+    <div class="till-box">
+        <p style="margin:0;">LIPA NA M-PESA (Buy Goods)</p>
+        <span class="till-number">123456</span> <p style="margin:0; font-size: 0.9rem;">Confirm the name is <strong>[Your Business Name]</strong></p>
     </div>
 
     <form name="orders" method="POST" data-netlify="true">
-        <label>Full Name</label>
-        <input type="text" name="name" required placeholder="Jane Doe">
+        <input type="hidden" name="form-name" value="orders">
         
-        <label>Phone Number</label>
-        <input type="tel" name="phone" required placeholder="0712345678">
+        <label>Your Name</label>
+        <input type="text" name="customer_name" required>
 
-        <label>M-PESA Transaction Code</label>
-        <input type="text" name="transaction_code" required placeholder="SAB123XYZ">
+        <label>Delivery Address / Town</label>
+        <input type="text" name="address" required>
 
-        <button type="submit">Confirm Payment & Order</button>
+        <label>M-PESA Code</label>
+        <input type="text" name="mpesa_code" placeholder="e.g. RBF2X8S9K" required>
+
+        <button type="submit">Submit Order</button>
     </form>
+</div>
+
 </body>
 </html>
